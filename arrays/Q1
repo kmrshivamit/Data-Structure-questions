@@ -1,0 +1,27 @@
+//Program to reverse an array by d positions.
+
+
+ArrayRotation1
+public class Main
+{
+	public static void main(String[] args) {
+	int d=2;
+	int arr[]={0,1,2,3,4,5};
+	int Narr[]=new int[arr.length];
+int	len=arr.length-1;
+	
+	for(int i=0;i<arr.length;i++)
+	{
+	     if(i-d>=0)
+	     Narr[i-d]=arr[i];
+	     else
+	     Narr[len+i-d+1]=arr[i];
+	     
+	    
+	}
+	
+	for(int k: Narr)
+	System.out.println(k);
+	
+	}
+}

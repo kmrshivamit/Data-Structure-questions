@@ -1,0 +1,35 @@
+//recursive program to check whether the array is sorted or not.
+public class Main
+{
+
+  static Boolean isSorted (int arr[], int i)
+  {
+    if (i == arr.length - 1)
+      return true;
+
+    if (arr[i] <= arr[i + 1])
+      return isSorted (arr, i + 1);
+    else
+      return false;
+  }
+  public static void main (String[]args)
+  {
+    int arr[] = { 1, 2, 3, 4, 5 };
+    System.out.println (isSorted (arr, arr.length - 1));
+//              int i;
+//              for( i=0;i<arr.length-1;i++)
+//              {
+//                  if(arr[i]<=arr[i+1])
+//                  ;
+//                  else 
+//                  break;
+//              }
+
+//              if(i==arr.length-1)
+//              System.out.println(true);
+//              else
+//              System.out.println(false);
+  }
+
+
+}

@@ -1,0 +1,45 @@
+Star Patten using recursion
+********                                                                                                                                  
+*******                                                                                                                                   
+******                                                                                                                                    
+*****                                                                                                                                     
+****                                                                                                                                      
+***                                                                                                                                       
+**                                                                                                                                        
+*                                                                                                                                         
+                                                                                                                                          
+    
+
+
+public class Main
+{
+
+ static void print (int k)
+  {
+    if (k == 0)
+      {
+	System.out.println ();
+	return;
+      }
+    System.out.print ("*");
+    print (--k);
+
+  }
+ static void printStar (int n, int i)
+  {
+    if (n + 1 - i >= 0){
+      print (n + 1 - i);
+      printStar ( n, ++i);}
+    else
+      {
+	
+	return;
+      }
+
+  }
+  public static void main (String[]args)
+  {
+
+    printStar (8, 1);
+  }
+}

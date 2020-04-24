@@ -1,0 +1,21 @@
+//Program to change Pi to 3.14 in a string in java using recursion.
+
+        
+public class Main
+{
+static String changePi(String str,int n)
+{
+    if(n==str.length()-1)
+    return str;
+    
+    if(str.charAt(n)=='P'&&str.charAt(n+1)=='i')
+    	return changePi(str.substring(0,n)+"3.14"+str.substring(n+2,str.length()),++n);
+    else
+    	return changePi(str,++n);
+    
+        }
+        
+	public static void main(String[] args) {
+ 		System.out.println(changePi("2+Pi*3+Pi",0));
+	}
+}

@@ -1,0 +1,42 @@
+//to find the subsequence of string using recursion.
+
+import java.util.*;
+import java.lang.*;
+public class Subsequence {
+
+	
+	 static ArrayList<String> subSequence(String s)
+	{
+		ArrayList<String> temp=new ArrayList<String>();
+		ArrayList<String> org =new ArrayList<String>();
+		
+		if(s.length()==0)
+		{
+			org.add("");
+			return org;
+		}
+		Character first=s.charAt(0);
+		String small=s.substring(1);	
+		
+	temp=subSequence(small); 
+	
+	 org.addAll(temp);
+	 
+	 for(String str:temp)
+		 {
+		 org.add(first.toString()+str);
+		
+		 }	
+	return org;
+		
+		
+	    
+	}
+	 
+	 public static void main(String args[])
+	 {
+		 System.out.println(subSequence("abc"));
+	 }
+	
+	
+}

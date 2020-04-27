@@ -1,0 +1,38 @@
+//Dice problem to get the end point from startpoint using recursion.
+
+import java.util.ArrayList;
+
+public class DiceDemo {
+	static ArrayList<String> reachTo10(int startPoint , int endPoint){
+		ArrayList<String> temp=new ArrayList<>();
+		if(startPoint==endPoint)
+		{
+			temp.add("");
+			return temp;
+		}
+		
+		if(startPoint>endPoint)
+		{
+			return temp;
+		}
+		
+		ArrayList<String> org=new ArrayList<>();
+		for(int i=1;i<=6; i++)
+		{int newstartPoint=i+startPoint;
+			temp=reachTo10(newstartPoint,endPoint);
+			
+			for(String str:temp)
+			{
+				org.add(i+str);
+			}
+			
+		 		}
+		return org;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println(reachTo10(0, 5));
+
+	}
+
+}

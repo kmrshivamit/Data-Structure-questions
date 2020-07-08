@@ -1,0 +1,53 @@
+
+class Node{
+  int data;
+  Node next;
+  
+  Node(int data)
+  {
+    this.data=data;
+    this.next=null;
+  }
+}
+
+class LinkedList{
+  Node root;
+  
+  void insert(int data)
+  {
+  
+    if(root==null)
+    root=new Node(data);
+    else{  Node temp=root;
+      
+      while(temp.next!=null)
+      {
+        temp=temp.next;
+      }temp.next=new Node(data);
+    } 
+  }
+  
+  void print()
+  {
+   Node temp=root    ;
+    while(temp!=null)
+    {
+      System.out.println(temp.data);
+      temp=temp.next;
+    }
+  }
+  
+  
+}
+public class Main
+{
+	public static void main(String[] args) {
+		
+		LinkedList l=new LinkedList();
+		l.insert(10);
+		l.insert(20);
+			l.insert(30);
+				l.insert(40);
+		l.print();
+	}
+}

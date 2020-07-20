@@ -1,0 +1,83 @@
+Given two binary strings, return their sum (also a binary string).
+
+The input strings are both non-empty and contains only characters 1 or 0.
+
+Example 1:
+
+Input: a = "11", b = "1"
+Output: "100"
+Example 2:
+
+Input: a = "1010", b = "1011"
+Output: "10101"
+ 
+
+Constraints:
+
+Each string consists only of '0' or '1' characters.
+1 <= a.length, b.length <= 10^4
+Each string is either "0" or doesn't contain any leading zero.
+
+code:
+
+class Solution {
+    public String addBinary(String a, String b) {
+       LinkedList<Integer> n1=new LinkedList<>();
+        LinkedList<Integer> n2=new LinkedList<>();
+        
+        for(int i=0;i<a.length();i++)
+            n1.add(a.charAt(i)-'0');
+                   
+                    for(int i=0;i<b.length();i++)
+                   n2.add(b.charAt(i)-'0');
+        
+                   int carry=0;
+                   LinkedList<Integer> n3=new LinkedList<>();
+                   int i;
+                 while((!n1.isEmpty())&&(!n2.isEmpty()))
+                   {int sum1;
+                      sum1=(n1.removeLast()+n2.removeLast()+carry);
+                       if(sum1>=2)
+                           carry=1;
+                       else
+                           carry=0;
+                       n3.add(sum1%2);
+                      
+                   }
+        System.out.println(n1);
+            System.out.println(n2);
+        
+        while(!n1.isEmpty())
+        { 
+              int   sum1=n1.removeLast()+carry;
+                if(sum1>=2)
+                    carry=1;
+                else
+                    carry=0;
+                n3.add(sum1%2);
+        }
+        
+         while(!n2.isEmpty())
+        { 
+            
+                int sum1=n2.removeLast()+carry;
+                if(sum1>=2)
+                    carry=1;
+                else
+                    carry=0;
+                n3.add(sum1%2);
+        }
+        
+        
+                   if(carry==1)
+                   n3.add(1);
+                   String str="";
+                   for(int k=n3.size()-1;k>=0;k--)
+                   {
+                       str+=n3.get(k);
+                   }
+        return str;
+        
+        
+    }
+}

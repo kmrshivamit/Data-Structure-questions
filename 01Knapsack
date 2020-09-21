@@ -1,0 +1,48 @@
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+    static int knapsack(int w[],int v[],int items,int W,int mem[][])
+    { if(items<=0||W<=0)
+        return 0;
+        if(mem[items][W]!=0)
+    return mem[items][W];
+       
+        if(w[items-1]>W){
+  return mem[items][W] =knapsack(w,v,items-1,W,mem);
+
+        }
+        if(w[items-1]<=W){
+   return  mem[items][W]= Math.max(v[items-1]+knapsack(w,v,items-1,W-w[items-1],mem),
+     knapsack(w,v,items-1,W,mem));
+    }  
+        return 9;
+    }
+    
+	public static void main (String[] args) {
+	Scanner s=new Scanner(System.in);
+	int t=s.nextInt();
+	
+	while(t-->0)
+	{
+	    int items=s.nextInt();
+	    int W=s.nextInt();
+	    int w[]=new int[items];
+	    int v[]=new int[items];
+	    int mem[][]=new int[1005][1005];
+	     for(int i=0;i<items;i++)
+	    v[i]=s.nextInt();
+	    for(int i=0;i<items;i++)
+	    w[i]=s.nextInt();
+	   
+	   
+	    
+	    System.out.println(knapsack(w,v,items ,W,mem));
+	     mem=null;
+	    
+	}
+	
+	}
+}

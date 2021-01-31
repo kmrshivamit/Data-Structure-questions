@@ -1,0 +1,32 @@
+class Solution {
+    public static int countDigit(int i)
+    {int count=0;
+        while(i!=0)
+        {
+            count+=i%10;
+            i=i/10;
+        }
+     return count;
+    }
+    public int countBalls(int lowLimit, int highLimit) {
+        HashMap<Integer,Integer> hm=new HashMap<>();
+        
+        for(int i=lowLimit;i<=highLimit;i++)
+
+        {
+            int count=countDigit(i);
+            hm.putIfAbsent(count,0);
+            int c=hm.get(count);
+            hm.put(count,++c);
+        }
+        //System.out.println(hm);
+        ArrayList<Integer> arr=new ArrayList<>();
+        
+        for(int i:hm.keySet())
+        arr.add(hm.get(i));
+        Collections.sort(arr);
+        return arr.get(arr.size()-1);
+        
+        
+    }
+}
